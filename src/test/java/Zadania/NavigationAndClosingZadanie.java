@@ -20,7 +20,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
  * Zamknij okno przeglądarki.
  * Zamknij sesję.
  * Pamiętaj o inicjalizacji WebDrivera i podaniu ścieżki do ChromeDrivera.
- *
+ * test dddd
  */
 
 public class NavigationAndClosingZadanie {
