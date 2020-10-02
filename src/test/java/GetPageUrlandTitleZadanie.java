@@ -28,7 +28,7 @@ public class GetPageUrlandTitleZadanie {
 
     @BeforeEach
     public void setDriver(){
-        System.setProperty("webdriver.chrome.driver", "C:/webdriver/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:/webdriver_actual/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().setSize(new Dimension(1295, 730));
     }
@@ -50,14 +50,14 @@ public class GetPageUrlandTitleZadanie {
         String wikiCodeEs = "\"es\"";
 
         driver.get("http://pl.wikipedia.org");
-        Assertions.assertEquals(driver.getTitle(), wikiTitle, "Wikipedia title is wrong");
-        Assertions.assertEquals(driver.getCurrentUrl(), wikiUrl, "wikipedia url is wrong");
+        Assertions.assertEquals(wikiTitle, driver.getTitle(), "Wikipedia title is wrong");
+        Assertions.assertEquals(wikiUrl, driver.getCurrentUrl(), "wikipedia url is wrong");
         Assertions.assertTrue(driver.getPageSource().contains(wikiCode), "lang pl not included");
 
         WebElement language = driver.findElement(By.cssSelector("a[title='hiszpański']"));
         language.click();
-        Assertions.assertEquals(driver.getTitle(), wikiTitleEs, "Title of Es version is wrong");
-        Assertions.assertEquals(driver.getCurrentUrl(), wikiUrlEs, "Url of Es version is wrong");
+        Assertions.assertEquals(wikiTitleEs, driver.getTitle(),"Title of Es version is wrong");
+        Assertions.assertEquals(wikiUrlEs, driver.getCurrentUrl(), "Url of Es version is wrong");
         Assertions.assertTrue(driver.getPageSource().contains(wikiCodeEs), "lang pl not included");
 
     }

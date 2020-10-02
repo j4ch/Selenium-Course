@@ -29,14 +29,15 @@ public class NavigationAndClosingZadanie {
 
     @BeforeEach
     public void driverSetup(){
-        System.setProperty("webdriver.chrome.driver","C:/webdriver/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:/webdriver_actual/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().setSize(new Dimension(1295, 730));
     }
 
     @AfterEach
-    public void driverClose(){
-        driver.quit();
+    public void driverClose() {
+          driver.close();
+          driver.quit();
     }
 
     @Test
@@ -44,10 +45,9 @@ public class NavigationAndClosingZadanie {
     driver.navigate().to("https://wikipedia.com");
     driver.navigate().to("http://nasa.gov");
     driver.navigate().back();
-    Assertions.assertEquals(driver.getTitle(), "Wikipedia", "wrong page title(wiki)");
+    Assertions.assertEquals( "Wikipedia", driver.getTitle(), "wrong page title(wiki)");
     driver.navigate().forward();
-    Assertions.assertEquals(driver.getTitle(), "NASA", "wrong page title(nasa)");
-    driver.close();
-    }
+    Assertions.assertEquals( "NASA1", driver.getTitle(), "wrong page title(nasa)");
+     }
 
 }

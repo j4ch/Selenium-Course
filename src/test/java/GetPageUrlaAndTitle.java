@@ -32,7 +32,7 @@ public class GetPageUrlaAndTitle {
     public void getUrlAndCompare(){
         String googleUrl = "https://www.google.com";
         driver.navigate().to("https://google.com");
-        Assertions.assertEquals(driver.getCurrentUrl(), googleUrl, "URL nie jest taki sam");
+        Assertions.assertEquals(googleUrl, driver.getCurrentUrl(), "URL nie jest taki sam");
 
     }
 
@@ -40,7 +40,7 @@ public class GetPageUrlaAndTitle {
     public void getTitleAndCompare(){
         String googleTitle = "Google";
         driver.navigate().to("https://google.com");
-        Assertions.assertEquals(driver.getTitle(), googleTitle, "Title nie jest taki sam" );
+        Assertions.assertEquals(googleTitle, driver.getTitle(), "Title nie jest taki sam" );
     }
 
     @Test
